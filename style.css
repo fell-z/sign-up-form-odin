@@ -6,8 +6,226 @@
     font-style: normal;
 }
 
+:root {
+  --left-wrapper-width: 600px;
+  --right-wrapper-left-spacing: 48px;
+  font-family: "Verdana", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: 800px;
+
+  margin: 0 auto;
+}
+
+input,
+button {
+  font: inherit;
+}
+
+.left-wrapper,
+.right-wrapper {
+  flex: 1;
+}
+
+.left-wrapper {
+  max-width: var(--left-wrapper-width);
+  padding: 16px 0;
+
+  background-image: url("images/background.jpg");
+  background-position: center;
+  background-size: var(--left-wrapper-width) 100%;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left-wrapper > * {
+  flex: 0 0 auto;
+}
+
+.credits {
+  margin-top: auto;
+}
+
+.credits,
+.credits a {
+  color: hsl(0, 0%, 100%);
+  font-size: 0.875rem;
+}
+
+.logo-wrapper {
+  align-self: stretch;
+
+  margin-top: 35%;
+  padding: 16px;
+  background-color: hsl(0, 0%, 0%, 0.5);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-wrapper img {
+  width: 96px;
+  height: auto;
+}
+
+.logo-wrapper .logo-text {
+  font-family: "Norse Bold";
+  font-size: 5rem;
+  color: hsl(0, 0%, 100%);
+}
+
+.right-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+}
+
+.right-wrapper > * {
+  margin-left: var(--right-wrapper-left-spacing);
+}
+
+.call-to-action {
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 1.3;
+
+  width: 600px;
+  margin-bottom: 32px;
+}
+
+.call-to-action > p:first-child {
+  margin-bottom: 20px;
+}
+
+.call-to-action .italic-text {
+  font-style: italic;
+}
+
+.form-wrapper {
+  color: hsl(240deg, 27%, 13%);
+  box-shadow: 6px 4px 10px 1px hsl(0, 0%, 77%);
+
+  margin-left: 0;
+  padding: 24px var(--right-wrapper-left-spacing) 48px;
+}
+
+.form-wrapper p {
+  font-size: 1.5rem;
+  font-weight: bold;
+
+  margin-bottom: 20px;
+}
+
+.form-wrapper form {
+  width: 680px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 64px;
+}
+
+form label {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+input {
+  display: block;
+  width: 300px;
+  padding: 4px 8px;
+  margin-top: 4px;
+
+  font-weight: normal;
+  font-size: 1rem;
+
+  border: 1px solid hsl(0, 0%, 76%);
+  border-radius: 4px;
+}
+
+label .required-star {
+  color: hsl(0deg, 75%, 57%);
+}
+
+input:required:user-invalid {
+  border-bottom: 1px solid hsl(0deg, 75%, 57%);
+}
+
+input:required:valid {
+  border-bottom: 1px solid hsl(120deg, 78%, 64%)
+}
+
+input:invalid + span {
+  position: relative;
+}
+
+input:required:user-invalid + span::after {
+  text-transform: initial;
+  letter-spacing: initial;
+  font-size: 12px;
+  color: hsl(0deg, 75%, 57%);
+
+  position: absolute;
+  content: "* Required field";
+  width: 15ch;
+  top: 12px;
+  left: 8px;
+}
+
+.form-wrapper input:focus {
+  outline: 0;
+  border: 1px solid hsl(220deg, 75%, 57%);
+  box-shadow: 4px 4px 4px hsl(0, 0%, 90%);
+}
+
+.right-wrapper button {
+  background-color: hsl(137deg, 55%, 34%);
+  color: hsl(0, 0%, 100%);
+
+  padding: 12px 64px;
+  border: 0;
+  border-radius: 8px;
+
+  font-weight: bold;
+  font-size: 18px;
+
+  cursor: pointer;
+
+  align-self: flex-start
+}
+
+.right-wrapper button:hover {
+  background-color: hsl(137deg, 55%, 40%);
+}
+
+.right-wrapper button:active {
+  background-color: hsl(137deg, 55%, 27%);
+}
+
+.right-wrapper a {
+  color: hsl(137deg, 55%, 28%);
+
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.right-wrapper a:active {
+  color: hsl(137deg, 55%, 44%);
 }
